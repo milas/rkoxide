@@ -1,0 +1,9 @@
+services:
+  rknn-demo:
+    build:
+      context: .
+      dockerfile: ./crates/rknn-demo/Dockerfile
+    command: ["rknn-demo", "${MODEL}"]
+    privileged: true
+    environment:
+      RUST_LOG: debug

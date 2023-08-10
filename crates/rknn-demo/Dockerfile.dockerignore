@@ -1,0 +1,13 @@
+**/target/
+
+**/.git/
+
+**/Dockerfile
+**/.dockerignore
+
+**/*.md
+**/LICENSE
+
+# ignore everything in rknpu2 except the few dirs we care about
+./crates/rknn_api-sys/rknpu2/
+!./crates/rknn_api-sys/rknpu2/runtime/RK3588/Linux/

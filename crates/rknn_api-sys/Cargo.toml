@@ -1,0 +1,11 @@
+[package]
+name = "rknn_api-sys"
+version = "0.1.0"
+edition = "2021"
+
+links = "rknn_api"
+
+[build-dependencies]
+bindgen = "0.66.1"
+
+[dependencies]

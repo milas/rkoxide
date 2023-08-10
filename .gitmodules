@@ -1,0 +1,4 @@
+[submodule "crates/rknn_api-sys/rknpu2"]
+	path = crates/rknn_api-sys/rknpu2
+	url = https://github.com/rockchip-linux/rknpu2
+    shallow = true

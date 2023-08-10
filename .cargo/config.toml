@@ -1,0 +1,2 @@
+[env]
+LD_LIBRARY_PATH={relative=true, value="crates/rknn_api-sys/rknpu2/runtime/RK3588/Linux/librknn_api/aarch64"}
