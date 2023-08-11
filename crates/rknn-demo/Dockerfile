@@ -1,3 +1,8 @@
+# syntax=docker/dockerfile:1
+FROM scratch AS git-rknpu2
+
+ADD https://github.com/rockchip-linux/rknpu2.git#4e2101af40a6cbe253eb680673846b7ec832a896 /
+
 FROM milas/rock5-sdk AS build
 
 # deps
@@ -14,6 +19,9 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 
 WORKDIR /code
+
+COPY --link --from=git-rknpu2 / /code/crates/rknn_api-sys/rknpu2/
+
 COPY . .
 
 RUN --mount=type=cache,target=/usr/local/cargo/registry \
@@ -25,10 +33,9 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
 
 FROM debian:bookworm
 
-COPY ./models/*.rknn /
-
 COPY --link --from=build /code/crates/rknn_api-sys/rknpu2/runtime/RK3588/Linux/librknn_api/aarch64/*.so /usr/local/lib/
 RUN ldconfig
 
+COPY ./models/*.rknn /
+
 COPY --link --from=build /out/rknn-demo /usr/local/bin/
-#RUN ["rknn-demo"]
