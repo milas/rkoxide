@@ -31,9 +31,9 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
     && cp ./target/release/rknn-demo /out/ \
     ;
 
-FROM debian:bookworm
+FROM debian:bullseye
 
-COPY --link --from=build /code/crates/rknn_api-sys/rknpu2/runtime/RK3588/Linux/librknn_api/aarch64/*.so /usr/local/lib/
+COPY --link --from=git-rknpu2 /runtime/RK3588/Linux/librknn_api/aarch64/*.so /usr/local/lib/
 RUN ldconfig
 
 COPY ./models/*.rknn /
