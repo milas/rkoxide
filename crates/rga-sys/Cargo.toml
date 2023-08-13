@@ -1,0 +1,11 @@
+[package]
+name = "rga-sys"
+version = "0.1.0"
+edition = "2021"
+
+links = "rga"
+
+[build-dependencies]
+bindgen = "0.66.1"
+
+[dependencies]

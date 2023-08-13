@@ -2,3 +2,8 @@
 	path = crates/rknn_api-sys/rknpu2
 	url = https://github.com/rockchip-linux/rknpu2
     shallow = true
+[submodule "crates/rga-sys/rga"]
+	path = crates/rga-sys/rga
+	url = https://github.com/JeffyCN/mirrors.git
+	branch = linux-rga
+    shallow = true
