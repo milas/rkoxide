@@ -6,4 +6,4 @@ services:
     command: ["rknn-demo", "${MODEL}"]
     privileged: true
     environment:
-      RUST_LOG: debug
+      RUST_LOG: ${RUST_LOG:-debug}
